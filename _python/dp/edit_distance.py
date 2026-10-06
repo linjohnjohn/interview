@@ -1,3 +1,9 @@
+# Problem: Edit Distance
+# Return the fewest single-character insertions, deletions, and replacements needed to turn
+# word1 into word2.
+#
+# Expected input/output: word1='horse', word2='ros' -> 3; word1='', word2='abc' -> 3
+
 class Solution:
     def minDistance(self, word1: str, word2: str) -> int:
         # dp(i, j) = edit distance from word1[i:] to word2[j:]
@@ -28,3 +34,8 @@ class Solution:
 s = Solution()
 print(s.minDistance("monkeys", "money"))
 print(s.minDistance("abc", "cbabc"))
+
+
+# Key insight:
+# For matching characters, advance both strings for free. Otherwise take 1 plus the cheapest
+# insert, delete, or replace subproblem.

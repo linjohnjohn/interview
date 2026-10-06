@@ -1,3 +1,9 @@
+# Problem: Min Cost to Connect All Points
+# Connect all 2D points with minimum total edge cost, where cost is Manhattan distance
+# abs(x1-x2)+abs(y1-y2). Any connected network is allowed.
+#
+# Expected input/output: points=[[0,0],[2,2],[3,10],[5,2],[7,0]] -> 20; points=[[0,0]] -> 0
+
 class Solution:
     def minCostConnectPoints(self, points: list[list[int]]) -> int:
         # add all possible edges into a min heap (cost, a, b)
@@ -51,3 +57,7 @@ print(s.minCostConnectPoints([[0,0],[2,2],[3,3],[2,4],[4,2]]))
 print(s.minCostConnectPoints([[0,0],[1, 1]]))
 print(s.minCostConnectPoints([[0,0]]))
 print(s.minCostConnectPoints([[0,0], [0, 1], [1, 0]]))
+
+# Key insight:
+# Find a minimum spanning tree. Kruskal's algorithm adds the cheapest edge joining different
+# components, using union-find to prevent cycles.

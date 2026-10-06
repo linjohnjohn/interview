@@ -1,3 +1,10 @@
+# Problem: Hand of Straights
+# Decide whether all cards can be divided into groups of groupSize consecutive values, using
+# each card once.
+#
+# Expected input/output: hand=[1,2,3,6,2,3,4,7,8], groupSize=3 -> true; hand=[1,2,3,4,5],
+# groupSize=4 -> false
+
 from collections import defaultdict
 
 
@@ -36,3 +43,8 @@ s = Solution()
 hand = [1, 1, 2, 2, 3, 3]
 groupSize = 3
 print(s.isNStraightHand(hand, groupSize))
+
+
+# Key insight:
+# The smallest unused card must begin a group. Consume the next groupSize consecutive values
+# from a frequency table or fail if any is missing.

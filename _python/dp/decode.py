@@ -1,3 +1,9 @@
+# Problem: Decode Ways
+# Digits encode letters with '1'->A through '26'->Z. Return the number of ways to decode the
+# whole string; a standalone zero or leading-zero code is invalid.
+#
+# Expected input/output: s='12' -> 2; s='226' -> 3; s='06' -> 0
+
 VALID_INT = set()
 for i in range(1, 27):
     VALID_INT.add(str(i))
@@ -27,3 +33,8 @@ print(s.numDecodings("01"))
 print(s.numDecodings("111"))
 
 
+
+
+# Key insight:
+# At each position, take a valid one-digit or two-digit code and add the counts for the
+# remaining suffix. The empty suffix has one decoding.

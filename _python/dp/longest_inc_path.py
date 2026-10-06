@@ -1,3 +1,9 @@
+# Problem: Longest Increasing Path in a Matrix
+# Return the longest strictly increasing path length using up/down/left/right moves. Diagonal
+# moves and wrapping are forbidden.
+#
+# Expected input/output: matrix=[[9,9,4],[6,6,8],[2,1,1]] -> 4; matrix=[[1]] -> 1
+
 class Solution:
     def longestIncreasingPath(self, matrix: list[list[int]]) -> int:
         M = len(matrix)
@@ -47,3 +53,8 @@ matrix = [[2, 2, 2], [2, 1, 2], [2, 2, 2]]
 print(s.longestIncreasingPath(matrix))
 matrix = [[2, 2, 2]]
 print(s.longestIncreasingPath(matrix))
+
+
+# Key insight:
+# Strict increases prevent cycles. Memoize the longest path starting at each cell so
+# overlapping searches reuse their results.

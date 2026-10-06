@@ -1,3 +1,10 @@
+# Problem: Insert Interval
+# Insert newInterval into sorted, non-overlapping closed intervals and merge all overlaps.
+# Return sorted, non-overlapping intervals.
+#
+# Expected input/output: intervals=[[1,3],[6,9]], newInterval=[2,5] -> [[1,5],[6,9]];
+# intervals=[], newInterval=[2,5] -> [[2,5]]
+
 class Solution:
     def insert(
         self, intervals: list[list[int]], newInterval: list[int]
@@ -36,3 +43,8 @@ class Solution:
             else:
                 intervals[idx][0] = min(intervals[idx][0], newInterval[0])
                 intervals[idx][0] = min(intervals[idx][1], newInterval[1])
+
+
+# Key insight:
+# Copy intervals before the new interval, absorb all overlaps by expanding its endpoints, then
+# append it and the remaining intervals.

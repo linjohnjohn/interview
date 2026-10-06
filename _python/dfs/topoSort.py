@@ -1,3 +1,11 @@
+# Problem: Topological Sort (Helper Snippet)
+# Given directed adjacency lists, return an ordering where every node appears before its
+# outgoing neighbors; return [] if a cycle exists. This file is an extracted helper snippet
+# rather than a standalone solution.
+#
+# Expected input/output: adj={'a':['b'],'b':['c'],'c':[]} -> ['a','b','c'];
+# adj={'a':['b'],'b':['a']} -> []
+
 def topological_sort(adj: dict[str, list]) -> list[str]:
     # perform dfs and keep track of when a node is "done"
     # reverse done list
@@ -30,3 +38,8 @@ def topological_sort(adj: dict[str, list]) -> list[str]:
 
 
 return "".join(topological_sort(adj))
+
+
+# Key insight:
+# DFS appends nodes only after their descendants finish, so reverse that completion order.
+# Reaching a node still being explored detects a cycle.

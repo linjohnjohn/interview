@@ -1,3 +1,9 @@
+# Problem: Best Time to Buy and Sell Stock with Cooldown
+# Find the maximum stock profit with unlimited transactions, holding at most one share. After
+# selling, wait one full day before buying again.
+#
+# Expected input/output: prices=[1,2,3,0,2] -> 3; prices=[1] -> 0
+
 class Solution:
     def maxProfit(self, prices: list[int]) -> int:
         
@@ -21,3 +27,7 @@ print(s.maxProfit([1,3,4,0,4]))
 print(s.maxProfit([1,3]))
 print(s.maxProfit([3]))
 print(s.maxProfit([]))
+
+# Key insight:
+# If buying on day i and selling on day j, the next buying opportunity is j+2. Compare this
+# with skipping day i and memoize future profit.

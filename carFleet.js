@@ -1,3 +1,11 @@
+/*
+ * Problem: Car Fleet
+ * Cars travel toward a target without passing. A car that catches another joins its fleet.
+ * Return how many fleets reach the target, including cars that meet there.
+ *
+ * Expected input/output: target=12, position=[10,8,0,5,3], speed=[2,4,1,1,3] -> 3
+ */
+
 class Solution {
     /**
      * @param {number} target
@@ -33,3 +41,10 @@ const s = new Solution();
 console.log(s.carFleet(10, [1, 4], [3, 2]));
 console.log(s.carFleet(10, [4, 1, 0, 7], [2, 2, 1, 1]));
 console.log(s.carFleet(10, [8, 3, 7, 4, 6, 5], [4, 4, 4, 4, 4, 4]));
+
+
+/*
+ * Key insight:
+ * Process cars from closest to the target backward. A car joins the fleet ahead if its
+ * arrival time is no larger than that fleet's time.
+ */

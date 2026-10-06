@@ -1,3 +1,9 @@
+# Problem: Palindromic Substrings
+# Count contiguous substrings that read the same forward and backward. Identical text at
+# different positions counts separately.
+#
+# Expected input/output: s='abc' -> 3; s='aaa' -> 6; s='' -> 0
+
 class Solution:
     def countSubstrings(self, s: str) -> int:
         # two pointers approach
@@ -40,3 +46,7 @@ s = Solution()
 print(s.countSubstrings('aaa'))
 print(s.countSubstrings('abc'))
 print(s.countSubstrings('hannah'))
+
+# Key insight:
+# Every palindrome has a center at a character or between two characters. Expand outward from
+# both kinds of center while the ends match.

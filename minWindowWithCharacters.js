@@ -1,3 +1,11 @@
+/*
+ * Problem: Minimum Window Substring
+ * Return the shortest substring of s containing all characters of t with their required
+ * multiplicities. Return an empty string if impossible.
+ *
+ * Expected input/output: s="ADOBECODEBANC", t="ABC" -> "BANC"; s="a", t="aa" -> ""
+ */
+
 class Solution {
     /**
      * @param {string} s
@@ -53,3 +61,10 @@ const s = new Solution();
 console.log(s.minWindow("ABC", "ABC"))
 console.log(s.minWindow("ABBCA", "ABC"))
 console.log(s.minWindow("AA", "ABC"))
+
+
+/*
+ * Key insight:
+ * Track required counts in a sliding window. Expand until all requirements are met, then
+ * shrink while valid to find the shortest window.
+ */

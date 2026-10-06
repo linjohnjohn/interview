@@ -1,3 +1,12 @@
+/*
+ * Problem: Jump Game II
+ * Return the fewest forward jumps needed to reach the last index; each value is a maximum
+ * jump length. Standard inputs guarantee reachability; this file also attempts an
+ * unreachable-case extension.
+ *
+ * Expected input/output: nums=[2,3,1,1,4] -> 2; nums=[0] -> 0
+ */
+
 /**
  * @param {number[]} nums
  * @return {boolean}
@@ -48,3 +57,9 @@ var jump = function (nums) {
 console.log(jump([2, 1]))
 console.log(jump([2, 3, 1, 1, 4]));
 console.log(jump([2, 2, 0, 0, 4]));
+
+/*
+ * Key insight:
+ * Treat all positions reachable with the same jump count as one layer; extend the farthest
+ * boundary and take a jump when the current layer ends.
+ */

@@ -1,3 +1,11 @@
+# Problem: Pacific Atlantic Water Flow
+# Return cells from which water can flow to both oceans using four-direction moves to equal or
+# lower heights. Pacific touches the top/left edges; Atlantic touches bottom/right. Output
+# coordinate order does not matter.
+#
+# Expected input/output: heights=[[1,2],[4,3]] -> [[0,1],[1,0],[1,1]]; heights=[[1]] ->
+# [[0,0]]
+
 class Solution:
     def pacificAtlantic(self, heights: list[list[int]]) -> list[list[int]]:
         ROWS, COLS = len(heights), len(heights[0])
@@ -71,3 +79,8 @@ grid = [
     [1, 0]
 ]
 print(s.pacificAtlantic(grid))
+
+
+# Key insight:
+# Reverse the flow: search uphill from each ocean's edges, then intersect their reachable cell
+# sets.

@@ -1,3 +1,11 @@
+/*
+ * Problem: Product of Array Except Self
+ * For each index, return the product of all other elements. Solve in O(n) without division,
+ * including inputs containing zeros.
+ *
+ * Expected input/output: nums=[1,2,3,4] -> [24,12,8,6]; nums=[2,3,0,4] -> [0,0,24,0]
+ */
+
 /**
  * @param {number[]} nums
  * @return {number[]}
@@ -27,3 +35,9 @@ var productExceptSelf = function (nums) {
 
 console.log(productExceptSelf([2, 3, 0, 4]));
 console.log(productExceptSelf([2, 3, 4]));
+
+/*
+ * Key insight:
+ * Multiply the product strictly to the left by the product strictly to the right of each
+ * index.
+ */

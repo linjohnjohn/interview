@@ -1,3 +1,10 @@
+# Problem: Word Break
+# Decide whether s can be split into one or more dictionary words. Dictionary words may be
+# reused.
+#
+# Expected input/output: s='leetcode', wordDict=['leet','code'] -> true; s='catsandog',
+# wordDict=['cats','dog','sand','and','cat'] -> false
+
 class Solution:
     def wordBreak(self, s: str, wordDict: list[str]) -> bool:
         N = len(s)
@@ -29,3 +36,7 @@ s = Solution()
 
 print(s.wordBreak("neetcodeneetcodeneetcodecodeneet", ["neet", "code"]))
 print(s.wordBreak("catsincars", ["cats","cat","sin","in","cars"]))
+
+# Key insight:
+# Try dictionary prefixes at each position and memoize whether the remaining suffix can be
+# segmented.

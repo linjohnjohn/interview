@@ -1,3 +1,12 @@
+# Problem: Islands and Treasure; Rotting Oranges
+# islandsAndTreasure: Fill each INF land cell with its shortest four-direction distance to
+# treasure (0), avoiding water (-1); unreachable land stays INF. orangesRotting: Each minute,
+# rotten oranges (2) rot adjacent fresh ones (1); empty cells are 0. Return minutes to rot all
+# fresh oranges, or -1.
+#
+# Expected input/output: treasure grid=[[0,INF],[-1,INF]] -> [[0,1],[-1,2]] (mutated); oranges
+# grid=[[2,1,1],[1,1,0],[0,1,1]] -> 4; oranges grid=[[0]] -> 0
+
 INF = 2147483647
 class Solution:
     def islandsAndTreasure(self, grid: list[list[int]]) -> None:
@@ -103,3 +112,8 @@ fruitImpossible2 =[
 print(s.orangesRotting(fruit))
 print(s.orangesRotting(fruitImpossible))
 print(s.orangesRotting(fruitImpossible2))
+
+
+# Key insight:
+# Start BFS from all treasures or rotten oranges at once. Each BFS layer is one distance step
+# or minute; check for unreachable fresh oranges afterward.

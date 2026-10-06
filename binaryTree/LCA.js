@@ -1,3 +1,12 @@
+/*
+ * Problem: Lowest Common Ancestor of a Binary Search Tree
+ * Given a BST and two nodes in it, return their lowest shared ancestor. A node can be its
+ * own ancestor. Tree arrays below use level order with null for missing children.
+ *
+ * Expected input/output: root=[6,2,8,0,4,7,9,null,null,3,5], p=2, q=8 -> node 6; p=2, q=4 ->
+ * node 2
+ */
+
 /**
  * Definition for a binary tree node.
  * class TreeNode {
@@ -31,3 +40,10 @@ class Solution {
         }
     }
 }
+
+
+/*
+ * Key insight:
+ * If both values are smaller, go left; if both are larger, go right. The first split or
+ * matching node is their lowest common ancestor.
+ */

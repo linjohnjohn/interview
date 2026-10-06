@@ -1,3 +1,13 @@
+# Problem: Counting Bits; Reverse Bits; Missing Number; Sum of Two Integers; Reverse Integer
+# countBits: Count set bits for every integer from 0 through n. reverseBits: Reverse all 32
+# bits of an unsigned integer. missingNumber: Find the absent value among distinct numbers
+# from 0..len(nums). getSum: Add signed 32-bit integers without + or -. reverse: Reverse
+# decimal digits, preserve sign, and return 0 on signed 32-bit overflow.
+#
+# Expected input/output: countBits(5) -> [0,1,1,2,1,2]; reverseBits(1) -> 2147483648;
+# missingNumber([3,0,1]) -> 2; getSum(-2,3) -> 1; reverse(-120) -> -21; reverse(1534236469) ->
+# 0
+
 
 class Solution:
     def countBits(self, n: int) -> list[int]:
@@ -78,3 +88,9 @@ print(s.reverse(-7463847412))
 
 # print(s.reverseBits(2147483648))
 # print(s.reverseBits(21))
+
+# Key insight:
+# Counting bits: shifting right removes the last bit. Reverse bits: consume exactly 32 low
+# bits into a new value. Missing number: subtract the actual sum from n*(n+1)//2. Sum: XOR
+# adds without carry; shifted AND supplies carry (mask to 32 bits for signed Python inputs).
+# Reverse integer: extract digits and check bounds before appending each digit.

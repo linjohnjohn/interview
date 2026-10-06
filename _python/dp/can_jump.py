@@ -1,3 +1,11 @@
+# Problem: Jump Game; Jump Game II
+# canJump: Decide whether the last index is reachable from index 0. jump: Return the minimum
+# jumps to reach it, with -1 for unreachable inputs in this file's extension. Each nonnegative
+# value is the maximum forward jump length.
+#
+# Expected input/output: nums=[2,3,1,1,4] -> canJump true, jump 2; nums=[3,2,1,0,4] -> canJump
+# false, jump -1
+
 class Solution:
     def canJump(self, nums: list[int]) -> bool:
         N = len(nums)
@@ -34,3 +42,9 @@ s = Solution()
 print(s.jump([1, 2, 0, 1, 0]))
 print(s.jump([1, 2, 0, 4, 0]))
 print(s.jump([1, 2, 1, 0, 0]))
+
+
+# Key insight:
+# Reachability needs only the farthest reachable index. Minimum-jump DP takes 1 plus the
+# smallest future jump count among reachable next positions; greedy BFS layers can reduce this
+# to linear time.

@@ -1,3 +1,10 @@
+/*
+ * Problem: Longest Substring Without Repeating Characters
+ * Return the length of the longest contiguous substring whose characters are all distinct.
+ *
+ * Expected input/output: s="abcabcbb" -> 3; s="bbbbb" -> 1; s="" -> 0
+ */
+
 
 class Solution {
     /**
@@ -32,3 +39,9 @@ console.log(s.lengthOfLongestSubstring('aaa'));
 console.log(s.lengthOfLongestSubstring(''));
 console.log(s.lengthOfLongestSubstring('abcdabcde'));
 console.log(s.lengthOfLongestSubstring('abcab'));
+
+/*
+ * Key insight:
+ * Maintain a sliding window of unique characters; move its left edge until a repeated
+ * incoming character can be added.
+ */

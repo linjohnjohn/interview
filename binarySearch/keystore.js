@@ -1,3 +1,11 @@
+/*
+ * Problem: Time Based Key-Value Store
+ * set stores a key's value at an increasing timestamp. get returns the value at the greatest
+ * stored timestamp no later than the query, or an empty string if none exists.
+ *
+ * Expected input/output: set("foo","bar",1); get("foo",3) -> "bar"; get("foo",0) -> ""
+ */
+
 class TimeMap {
     constructor() {
         this.keyStore = new Map();
@@ -51,3 +59,9 @@ k.set("key1", "value1", 10);
 console.log(k.get("key1", 1));
 console.log(k.get("key1", 10));
 console.log(k.get("key1", 11));
+
+/*
+ * Key insight:
+ * Store each key's versions in timestamp order and binary-search the first timestamp above
+ * the query; its predecessor is the answer.
+ */

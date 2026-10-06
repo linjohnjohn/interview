@@ -1,3 +1,11 @@
+/*
+ * Problem: Same Tree
+ * Decide whether two trees have identical structure and corresponding node values. Arrays
+ * below use level order with null for missing children.
+ *
+ * Expected input/output: p=[1,2,3], q=[1,2,3] -> true; p=[1,2], q=[1,null,2] -> false
+ */
+
 /**
  * Definition for a binary tree node.
  * class TreeNode {
@@ -22,3 +30,10 @@ class Solution {
         return p.val === q.val && this.isSameTree(p.left, q.left) && this.isSameTree(p.right, q.right);
     }
 }
+
+
+/*
+ * Key insight:
+ * Compare both roots and recursively compare corresponding children; two missing nodes
+ * match, but only one missing node does not.
+ */

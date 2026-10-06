@@ -1,3 +1,11 @@
+/*
+ * Problem: Largest Rectangle in Histogram
+ * Bars have width 1 and the supplied heights. Return the largest rectangular area formed by
+ * consecutive bars.
+ *
+ * Expected input/output: heights=[2,1,5,6,2,3] -> 10; heights=[2,4] -> 4
+ */
+
 class Solution {
     /**
      * @param {number[]} heights
@@ -56,3 +64,9 @@ const s = new Solution();
 
 console.log(s.largestRectangleArea([7, 1, 7, 2, 2, 4]));
 console.log(s.largestRectangleArea([1, 3, 7]));
+
+/*
+ * Key insight:
+ * For each bar, find the nearest strictly shorter bar on both sides using a monotonic stack;
+ * height times the span gives its best rectangle.
+ */

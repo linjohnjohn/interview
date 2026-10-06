@@ -1,3 +1,12 @@
+/*
+ * Problem: Gas Station
+ * Stations form a circle. gas[i] is fuel available and cost[i] is fuel needed for the next
+ * station. Starting empty, return a valid start index or -1.
+ *
+ * Expected input/output: gas=[1,2,3,4,5], cost=[3,4,5,1,2] -> 3; gas=[2,3,4], cost=[3,4,3]
+ * -> -1
+ */
+
 /**
  * @param {number[]} gas
  * @param {number[]} cost
@@ -37,3 +46,9 @@ var canCompleteCircuit = function (gas, cost) {
     }
     return candidate;
 };
+
+/*
+ * Key insight:
+ * If total gas is below total cost, no start works. When the running tank becomes negative,
+ * every start in that failed segment can be skipped.
+ */

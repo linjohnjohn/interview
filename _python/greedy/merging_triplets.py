@@ -1,3 +1,10 @@
+# Problem: Merge Triplets to Form Target Triplet
+# A merge replaces one triplet by coordinate-wise maxima with another. Decide whether repeated
+# merges can produce target.
+#
+# Expected input/output: triplets=[[2,5,3],[1,8,4],[1,7,5]], target=[2,7,5] -> true;
+# triplets=[[3,4,5]], target=[2,4,5] -> false
+
 class Solution:
     def mergeTriplets(self, triplets: list[list[int]], target: list[int]) -> bool:
         a, b, c = target
@@ -17,3 +24,9 @@ class Solution:
                     return True
 
         return matches == 3
+
+
+# Key insight:
+# Discard any triplet exceeding target in any coordinate. Among the rest, track separately
+# whether each target coordinate can be reached; repeated matches of one coordinate do not
+# replace missing coordinates.

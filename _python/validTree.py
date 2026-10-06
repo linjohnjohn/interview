@@ -1,3 +1,10 @@
+# Problem: Graph Valid Tree
+# Given n nodes labeled 0..n-1 and undirected edges, decide whether the graph is a tree:
+# connected and without cycles.
+#
+# Expected input/output: n=5, edges=[[0,1],[0,2],[0,3],[1,4]] -> true; n=3,
+# edges=[[0,1],[1,2],[2,0]] -> false
+
 from collections import defaultdict
 
 class Solution:
@@ -41,3 +48,8 @@ print(s.validTree(4, [[0, 1], [0, 2]]))
 print(s.validTree(4, [[0, 1], [0, 2], [3, 2]]))
 print(s.validTree(4, [[0, 1], [0, 2], [2, 1]]))
 
+
+
+# Key insight:
+# A tree has exactly n-1 edges and is connected. Check connectivity with DFS or union-find;
+# union-find can also reject an edge within an existing component.

@@ -1,3 +1,11 @@
+/*
+ * Problem: Add Two Numbers
+ * Two linked lists encode nonnegative integers with least-significant digit first. Return
+ * their sum in the same format. Arrays below list node values in traversal order.
+ *
+ * Expected input/output: l1=[2,4,3], l2=[5,6,4] -> [7,0,8]; l1=[9], l2=[1] -> [0,1]
+ */
+
 class ListNode {
     constructor(val = 0, next = null) {
         this.val = val;
@@ -55,3 +63,10 @@ function printLL(list) {
 
     console.log(res);
 }
+
+
+/*
+ * Key insight:
+ * Add matching digits and a carry, treating a missing digit as zero; append a final carry
+ * node when needed.
+ */

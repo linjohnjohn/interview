@@ -1,3 +1,12 @@
+# Problem: Course Schedule; Course Schedule II
+# Courses are numbered 0..numCourses-1; [course,prerequisite] requires the prerequisite first.
+# Course Schedule asks if all can be completed. Course Schedule II asks for a valid order or
+# [] on a cycle. This file's canFinish currently returns an order despite its boolean
+# annotation.
+#
+# Expected input/output: numCourses=2, prerequisites=[[1,0]] -> true, order [0,1];
+# prerequisites=[[1,0],[0,1]] -> false, order []
+
 from collections import defaultdict
 class Solution:
     def canFinish(self, numCourses: int, prerequisites: list[list[int]]) -> bool:
@@ -82,3 +91,7 @@ s = Solution()
 print(s.canFinish(2, [[0, 1], [1, 0]]))
 print(s.canFinish(2, [[0, 1]]))
 print(s.canFinish(3, [[0, 1], [1, 2]]))
+
+# Key insight:
+# A directed cycle prevents completion. Use DFS with visiting/completed states or repeatedly
+# remove zero-indegree courses; a successful traversal yields a valid order.

@@ -1,3 +1,11 @@
+/*
+ * Problem: Reorder List
+ * Rearrange nodes in place from L0,L1,...,Ln to L0,Ln,L1,Ln-1,... without changing their
+ * values. Arrays below show node order after mutation.
+ *
+ * Expected input/output: head=[1,2,3,4] -> [1,4,2,3]; head=[1,2,3,4,5] -> [1,5,2,4,3]
+ */
+
 class ListNode {
     constructor(val = 0, next = null) {
         this.val = val;
@@ -80,3 +88,10 @@ function printLL(list) {
 
     console.log(res);
 }
+
+
+/*
+ * Key insight:
+ * Find the middle with slow/fast pointers, reverse the second half, then weave the two
+ * halves together.
+ */

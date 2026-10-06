@@ -1,3 +1,11 @@
+/*
+ * Problem: Median of Two Sorted Arrays
+ * Return the median of two ascending arrays whose combined length is positive. For an even
+ * count, average the middle two values; aim for logarithmic time.
+ *
+ * Expected input/output: nums1=[1,3], nums2=[2] -> 2; nums1=[1,2], nums2=[3,4] -> 2.5
+ */
+
 class Solution {
     /**
      * @param {number[]} nums1
@@ -57,3 +65,10 @@ console.log(s.findMedianSortedArrays([1, 2, 3, 4], [3, 4, 6]));
 console.log(s.findMedianSortedArrays([1, 2, 3, 3, 3, 4], [3, 3, 3, 4, 6]));
 console.log(s.findMedianSortedArrays([1, 2, 3, 4], [3, 6]));
 console.log(s.findMedianSortedArrays([1, 2], [3, 4]));
+
+
+/*
+ * Key insight:
+ * Binary-search how the arrays split around the middle, ensuring every left-side value is at
+ * most every right-side value. This file instead searches candidate median ranks.
+ */

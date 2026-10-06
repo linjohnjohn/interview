@@ -1,3 +1,11 @@
+/*
+ * Problem: Candy
+ * Give each child at least one candy. A child with a higher rating than an adjacent child
+ * must receive more candy. Return the minimum total.
+ *
+ * Expected input/output: ratings=[1,0,2] -> 5; ratings=[1,2,2] -> 4
+ */
+
 /**
  * @param {number[]} ratings
  * @return {number}
@@ -68,3 +76,10 @@ console.log(candy([1, 0, 2]));
 console.log(candy([3, 2, 1, 0, 2]));
 console.log(candy([3, 2, 2, 2, 1, 0, 2]));
 console.log(candy([1, 6, 10, 8, 7, 3, 2]));
+
+
+/*
+ * Key insight:
+ * A left-to-right pass satisfies the left neighbor; a right-to-left pass takes the maximum
+ * needed to satisfy the right neighbor too.
+ */

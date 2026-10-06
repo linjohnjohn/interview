@@ -1,3 +1,11 @@
+/*
+ * Problem: Find Minimum in Rotated Sorted Array
+ * An ascending array of distinct values has been rotated, possibly zero times. Return its
+ * minimum in O(log n).
+ *
+ * Expected input/output: nums=[3,4,5,1,2] -> 1; nums=[1,2,3] -> 1
+ */
+
 class Solution {
     /**
      * @param {number[]} nums
@@ -28,3 +36,10 @@ console.log(s.findMin([5, 1, 2, 3, 4]));
 console.log(s.findMin([1, 2, 3, 4]));
 console.log(s.findMin([1]));
 console.log(s.findMin([2, 1]));
+
+
+/*
+ * Key insight:
+ * The rotation boundary separates high values from low values. Binary-search that boundary,
+ * handling the unrotated case separately.
+ */

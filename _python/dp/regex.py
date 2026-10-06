@@ -1,3 +1,9 @@
+# Problem: Regular Expression Matching
+# Decide whether the entire string s matches pattern p. A dot matches any one character; a
+# star repeats the preceding character zero or more times. Assume a valid pattern.
+#
+# Expected input/output: s='aa', p='a' -> false; s='ab', p='.*' -> true; s='', p='a*' -> true
+
 class Solution:
     def isMatch(self, s: str, p: str) -> bool:
         # s is string and p is regex express
@@ -49,3 +55,8 @@ print(s.isMatch("aa", "a"))
 # print(s.isMatch("aa", ".b"))
 # print(s.isMatch("aa", ".."))
 # print(s.isMatch("nnn", "n*"))
+
+
+# Key insight:
+# Memoize string/pattern positions. A starred token can be skipped or consume a matching
+# character while staying on that token; empty strings may match a suffix of starred tokens.

@@ -1,3 +1,10 @@
+# Problem: Redundant Connection
+# An undirected tree with labels 1..n gained one extra edge. Return an edge whose removal
+# restores a tree; if several qualify, return the last in input order.
+#
+# Expected input/output: edges=[[1,2],[1,3],[2,3]] -> [2,3];
+# edges=[[1,2],[2,3],[3,4],[1,4],[1,5]] -> [1,4]
+
 class Solution:
     def findRedundantConnection(self, edges: list[list[int]]) -> list[int]:
         n = len(edges)
@@ -23,3 +30,7 @@ class Solution:
         for [a, b] in edges:
             if not union(a - 1, b - 1):
                 return [a, b]
+
+# Key insight:
+# Process edges with union-find. The edge whose endpoints are already connected closes the
+# cycle and is the redundant edge.

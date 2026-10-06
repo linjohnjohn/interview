@@ -1,3 +1,12 @@
+/*
+ * Problem: Longest Common Prefix
+ * Return the longest starting string shared by every word, or an empty string when there is
+ * none.
+ *
+ * Expected input/output: strs=["flower","flow","flight"] -> "fl";
+ * strs=["dog","racecar","car"] -> ""
+ */
+
 /**
  * @param {string[]} strs
  * @return {string}
@@ -17,3 +26,9 @@ var longestCommonPrefix = function (strs) {
         i++;
     }
 };
+
+/*
+ * Key insight:
+ * Compare one character position across all words; the first mismatch or word ending fixes
+ * the prefix length.
+ */

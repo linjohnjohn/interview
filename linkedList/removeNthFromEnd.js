@@ -1,3 +1,11 @@
+/*
+ * Problem: Remove Nth Node from End
+ * Remove the nth node counting backward from a linked list's end and return its head. n is
+ * valid. Arrays below list node values in traversal order.
+ *
+ * Expected input/output: head=[1,2,3,4,5], n=2 -> [1,2,3,5]; head=[1], n=1 -> []
+ */
+
 class ListNode {
     constructor(val = 0, next = null) {
         this.val = val;
@@ -45,3 +53,10 @@ function printLL(list) {
 
     console.log(res);
 }
+
+
+/*
+ * Key insight:
+ * Use a dummy head and two pointers separated by n nodes; when the fast pointer ends, the
+ * slow pointer is just before the node to remove.
+ */

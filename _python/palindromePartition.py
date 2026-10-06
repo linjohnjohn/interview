@@ -1,3 +1,9 @@
+# Problem: Palindrome Partitioning
+# Return every way to split s into contiguous nonempty palindromes. Pieces within each
+# partition must remain in original string order; result order does not matter.
+#
+# Expected input/output: s='aab' -> [['a','a','b'],['aa','b']]; s='a' -> [['a']]
+
 import math
 
 class Solution:
@@ -36,3 +42,7 @@ class Solution:
 s = Solution()
 print(s.partition('aab'))
 print(s.partition('aabba'))
+
+# Key insight:
+# Try each palindromic prefix and combine it with partitions of the remaining suffix; preserve
+# prefix-before-suffix order when assembling each result.

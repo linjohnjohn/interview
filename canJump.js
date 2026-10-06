@@ -1,3 +1,11 @@
+/*
+ * Problem: Jump Game
+ * Start at index 0. Each nonnegative value is the maximum forward jump from that index.
+ * Decide whether you can reach the last index.
+ *
+ * Expected input/output: nums=[2,3,1,1,4] -> true; nums=[3,2,1,0,4] -> false
+ */
+
 /**
  * @param {number[]} nums
  * @return {boolean}
@@ -19,3 +27,9 @@ var canJump = function (nums) {
 
     return jumpableArr[0];
 };
+
+/*
+ * Key insight:
+ * Keep the farthest reachable index; an index beyond that boundary cannot be visited.
+ * Backward DP can also mark positions that reach the end.
+ */

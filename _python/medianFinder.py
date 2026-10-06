@@ -1,3 +1,10 @@
+# Problem: Find Median from Data Stream
+# Support adding integers and querying the median of all values seen. Average the middle two
+# values for an even count; queries have at least one value.
+#
+# Expected input/output: addNum(1), addNum(2), findMedian() -> 1.5; addNum(3), findMedian() ->
+# 2
+
 import heapq
 
 class MedianFinder:
@@ -38,3 +45,8 @@ print(s.findMedian())
 
 s.addNum(4)
 print(s.findMedian())
+
+
+# Key insight:
+# Keep a max-heap of the lower half and a min-heap of the upper half, balanced in size with
+# every lower value no greater than every upper value.

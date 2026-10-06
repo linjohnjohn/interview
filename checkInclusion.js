@@ -1,3 +1,11 @@
+/*
+ * Problem: Permutation in String
+ * Decide whether s2 contains a contiguous substring that is a rearrangement of all
+ * characters in s1.
+ *
+ * Expected input/output: s1="ab", s2="eidbaooo" -> true; s1="ab", s2="eidboaoo" -> false
+ */
+
 class Solution {
     /**
      * @param {string} s1
@@ -50,3 +58,10 @@ class Solution {
         return true;
     }
 }
+
+
+/*
+ * Key insight:
+ * An anagram has identical character counts. Slide a window of exactly len(s1), updating the
+ * entering and leaving characters.
+ */

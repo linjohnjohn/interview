@@ -1,3 +1,11 @@
+/*
+ * Problem: Generate Parentheses
+ * Return every distinct well-formed string containing n pairs of parentheses. Result order
+ * does not matter.
+ *
+ * Expected input/output: n=2 -> ["(())","()()"]; n=1 -> ["()"]
+ */
+
 class Solution {
     /**
      * @param {number} n
@@ -43,3 +51,9 @@ const s = new Solution();
 console.log(s.generateParenthesis(2));
 console.log(s.generateParenthesis(3));
 console.log(s.generateParenthesis(4));
+
+/*
+ * Key insight:
+ * Backtrack with counts of opens and closes; add an open only below n and a close only when
+ * an unmatched open exists.
+ */

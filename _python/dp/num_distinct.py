@@ -1,3 +1,10 @@
+# Problem: Distinct Subsequences
+# Count ways to delete characters from s, preserving order, so the remaining string equals t.
+# Different choices of source indices count separately.
+#
+# Expected input/output: s='rabbbit', t='rabbit' -> 3; s='babgbag', t='bag' -> 5; s='abc',
+# t='' -> 1
+
 class Solution:
     def numDistinct(self, s: str, t: str) -> int:
         # dp(j) = Given string s', how many distinct subsequence of s' are equal to t[j:]
@@ -46,3 +53,8 @@ s = Solution()
 print(s.numDistinct("caaat", "cat"))
 print(s.numDistinct("caat", "cat"))
 print(s.numDistinct("caat", "ccat"))
+
+
+# Key insight:
+# Always consider skipping the current source character; when it matches the target character,
+# also count using it. An empty target has one match.

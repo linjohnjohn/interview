@@ -1,3 +1,12 @@
+/*
+ * Problem: LRU Cache
+ * Build a fixed-capacity cache with get and put in O(1). Reading or updating a key makes it
+ * most recently used; evict the least recently used key when full. Missing keys return -1.
+ *
+ * Expected input/output: capacity=2; put(1,10), put(2,20), get(1), put(3,30), get(2) -> 10,
+ * -1
+ */
+
 class LRUCache {
     keyValue = new Map();
     forward = new Map();
@@ -92,3 +101,10 @@ c.get(3);
 // Test 1: Full LRU and set a new value
 // Test 1: Full LRU and Set something that already exists
 // Test 1: Full LRU and set the key about to be evicted
+
+
+/*
+ * Key insight:
+ * Combine a hash map for lookup with a doubly linked list for usage order; move accessed
+ * keys to the newest end.
+ */

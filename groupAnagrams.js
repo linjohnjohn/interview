@@ -1,3 +1,12 @@
+/*
+ * Problem: Group Anagrams
+ * Group lowercase words that contain the same letters with the same frequencies. Group and
+ * word order do not matter.
+ *
+ * Expected input/output: strs=["eat","tea","tan","ate","nat","bat"] ->
+ * [["eat","tea","ate"],["tan","nat"],["bat"]]
+ */
+
 A_CHAR_CODE = 'a'.charCodeAt(0);
 class Solution {
     /**
@@ -27,3 +36,9 @@ class Solution {
 let s = new Solution();
 
 console.log(s.groupAnagrams(['cats', 'rats', 'tacs']));
+
+
+/*
+ * Key insight:
+ * Use a 26-letter frequency signature as the hash-map key; anagrams share a signature.
+ */

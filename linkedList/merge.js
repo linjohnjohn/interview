@@ -1,3 +1,12 @@
+/*
+ * Problem: Merge Two Sorted Lists
+ * Merge two ascending linked lists into one ascending list using their nodes. Arrays below
+ * list node values in traversal order.
+ *
+ * Expected input/output: list1=[1,2,4], list2=[1,3,4] -> [1,1,2,3,4,4]; list1=[], list2=[0]
+ * -> [0]
+ */
+
 class ListNode {
     constructor(val = 0, next = null) {
         this.val = val;
@@ -41,3 +50,9 @@ const l1 = new ListNode(1, new ListNode(3, new ListNode(5)));
 const l2 = new ListNode(1, new ListNode(4));
 
 console.log(s.mergeTwoLists(l1, l2));
+
+/*
+ * Key insight:
+ * Use a dummy head and repeatedly attach the smaller current node, then attach the remaining
+ * suffix.
+ */

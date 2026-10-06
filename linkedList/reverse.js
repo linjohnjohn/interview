@@ -1,3 +1,11 @@
+/*
+ * Problem: Reverse Linked List
+ * Reverse a singly linked list and return the new head. Arrays below list node values in
+ * traversal order.
+ *
+ * Expected input/output: head=[1,2,3] -> [3,2,1]; head=[] -> []
+ */
+
 class ListNode {
     constructor(val = 0, next = null) {
         this.val = val;
@@ -33,3 +41,9 @@ console.log(s.reverseList(l1));
 const rl3 = s.reverseList(l3);
 console.log(rl3);
 console.log(s.reverseList(rl3));
+
+
+/*
+ * Key insight:
+ * Save the next node before redirecting each node's next pointer to the previous node.
+ */

@@ -1,3 +1,11 @@
+/*
+ * Problem: Roman to Integer
+ * Convert a valid Roman numeral to its integer value, handling subtractive pairs such as IV,
+ * IX, and CM.
+ *
+ * Expected input/output: s="III" -> 3; s="MCMXCIV" -> 1994
+ */
+
 const ROMAN_TO_INT = {
     I: 1,
     V: 5,
@@ -27,3 +35,10 @@ var romanToInt = function (s) {
 };
 
 
+
+
+/*
+ * Key insight:
+ * A symbol before a larger symbol is subtracted; otherwise add it. Alternatively consume
+ * subtractive pairs together.
+ */

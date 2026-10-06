@@ -1,3 +1,9 @@
+# Problem: House Robber
+# Houses lie in a straight row. Return the maximum money you can steal without robbing
+# adjacent houses. rob and rob2 here solve the same linear problem.
+#
+# Expected input/output: nums=[1,2,3,1] -> 4; nums=[2,7,9,3,1] -> 12
+
 class Solution:
     def rob2(self, nums: list[int]) -> int:
         # dp(i) = max gain at house i
@@ -28,3 +34,7 @@ class Solution:
 s = Solution()
 print(s.rob([1, 1, 3, 3]))
 print(s.rob([1, 3]))
+
+# Key insight:
+# At each house, choose between skipping it and taking its money plus the best result starting
+# two houses later.

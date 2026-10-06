@@ -1,3 +1,10 @@
+# Problem: Number of Islands
+# Count groups of '1' land cells in a grid of '1' and '0'. Land is connected only horizontally
+# or vertically.
+#
+# Expected input/output: grid=[['1','1','0'],['0','1','0'],['0','0','1']] -> 2; grid=[['0']]
+# -> 0
+
 class Solution:
     def numIslands(self, grid: list[list[str]]) -> int:
         ROWS = len(grid)
@@ -80,3 +87,8 @@ s = Solution()
 grid6=[[0,1,1,0,1],[1,0,1,0,1],[0,1,1,0,1],[0,1,0,0,1]]
 
 print(s.maxAreaOfIsland(grid6))
+
+
+# Key insight:
+# Each unvisited land cell starts one island; flood-fill and mark its entire connected
+# component before continuing the scan.

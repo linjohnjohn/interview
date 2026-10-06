@@ -1,3 +1,10 @@
+# Problem: Task Scheduler
+# Each task takes one time unit. Identical task letters must have at least n intervening
+# units, which may be other tasks or idle time. Return the minimum total time; tasks may be
+# reordered.
+#
+# Expected input/output: tasks=['A','A','A','B','B','B'], n=2 -> 8; same tasks, n=0 -> 6
+
 import heapq
 
 class Solution:
@@ -41,3 +48,7 @@ class Solution:
     
 s = Solution()
 print(s.leastInterval(['A', 'A', 'A', 'B', 'B'], 2))
+
+# Key insight:
+# Run the most frequent available task and hold unfinished tasks in a cooldown queue until
+# eligible again; idle only when no task is available.

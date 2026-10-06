@@ -1,3 +1,9 @@
+# Problem: K Closest Points to Origin; Kth Largest Element in an Array
+# kClosest: Return k points nearest (0,0) by Euclidean distance; output order does not matter.
+# findKthLargest: Return the kth largest array element, counting duplicates.
+#
+# Expected input/output: points=[[1,3],[-2,2]], k=1 -> [[-2,2]]; nums=[3,2,1,5,6,4], k=2 -> 5
+
 
 import heapq
 
@@ -27,3 +33,8 @@ class Solution:
 s = Solution()
 print(s.kClosest([[1, 1], [2, 2], [1, 2]], 2))
 print(s.findKthLargest([2, 2, 1, 1, 2, 1, 4, 12, 3, 2], 2))
+
+
+# Key insight:
+# Closest points: keep a max-heap of the k smallest squared distances. Kth largest: keep a
+# min-heap of the k largest values; its root is the answer.

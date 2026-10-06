@@ -1,3 +1,11 @@
+/*
+ * Problem: Reverse Nodes in k-Group
+ * Reverse each full group of k linked-list nodes; leave a final group with fewer than k
+ * nodes unchanged. Change links rather than values. Arrays below show node order.
+ *
+ * Expected input/output: head=[1,2,3,4,5], k=2 -> [2,1,4,3,5]; k=3 -> [3,2,1,4,5]
+ */
+
 class ListNode {
     constructor(val = 0, next = null) {
         this.val = val;
@@ -95,3 +103,10 @@ function printLL(list) {
 
     console.log(res);
 }
+
+
+/*
+ * Key insight:
+ * Confirm k nodes exist before reversing a group; reconnect its new head and tail with the
+ * neighboring groups.
+ */

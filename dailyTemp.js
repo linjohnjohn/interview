@@ -1,3 +1,11 @@
+/*
+ * Problem: Daily Temperatures
+ * For each temperature, return how many days until a strictly warmer day. Use 0 when no
+ * warmer day follows.
+ *
+ * Expected input/output: temperatures=[73,74,75,71,69,72,76,73] -> [1,1,4,2,1,1,0,0]
+ */
+
 class Solution {
     /**
      * @param {number[]} temperatures
@@ -32,3 +40,9 @@ console.log(s.dailyTemperatures([1, 2, 3]));
 console.log(s.dailyTemperatures([3, 2, 1]));
 console.log(s.dailyTemperatures([3, 2, 4]));
 console.log(s.dailyTemperatures([3, 2, 4, 5]));
+
+/*
+ * Key insight:
+ * A monotonic stack keeps useful candidate indices; discard days that cannot be the next
+ * warmer day.
+ */

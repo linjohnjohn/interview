@@ -1,3 +1,10 @@
+# Problem: Word Ladder
+# Change beginWord to endWord one letter at a time, with each new word in wordlist. Return the
+# shortest sequence's word count including both endpoints, or 0 if impossible.
+#
+# Expected input/output: beginWord='hit', endWord='cog',
+# wordlist=['hot','dot','dog','lot','log','cog'] -> 5; wordlist=['hot','dot','dog'] -> 0
+
 from collections import defaultdict
 
 LETTER_TO_INT = {} 
@@ -71,3 +78,8 @@ print(s.ladderLength('cat', 'sat', wordlist))
 print(s.ladderLength('cat', 'bud', wordlist))
 print(s.ladderLength('cat', 'lid', wordlist))
 print(s.ladderLength('hat', 'bud', wordlist))
+
+
+# Key insight:
+# Words differing by one letter are graph neighbors. Wildcard patterns group these neighbors;
+# BFS finds the shortest transformation sequence.

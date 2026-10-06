@@ -1,3 +1,13 @@
+/*
+ * Problem: Integer to Roman; Length of Last Word
+ * intToRoman: Convert an integer in 1..3999 to Roman numerals, including subtractive pairs
+ * such as IV and IX. lengthOfLastWord: Return the length of the final word, ignoring
+ * trailing spaces.
+ *
+ * Expected input/output: intToRoman(58) -> "LVIII"; intToRoman(1994) -> "MCMXCIV";
+ * lengthOfLastWord("Hello World  ") -> 5
+ */
+
 
 const CONVERSION_MAP = [
     new Map([[1, "I"], [5, "V"], [4, "IV"], [9, "IX"]]),
@@ -58,3 +68,9 @@ var lengthOfLastWord = function (s) {
 
     return len;
 };
+
+/*
+ * Key insight:
+ * Roman conversion: process place values using special forms for 4 and 9. Last word: scan
+ * backward past spaces, then count letters until the next space.
+ */

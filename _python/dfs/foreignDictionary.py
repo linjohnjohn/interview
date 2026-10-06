@@ -1,3 +1,10 @@
+# Problem: Alien Dictionary
+# Words are sorted using an unknown alphabet. Return one valid ordering of all characters, or
+# an empty string if no ordering is possible. Multiple valid orders may exist.
+#
+# Expected input/output: words=['wrt','wrf','er','ett','rftt'] -> 'wertf'; words=['abc','ab']
+# -> ''
+
 from collections import defaultdict
 
 class Solution:
@@ -62,3 +69,8 @@ print(s.foreignDictionary(["abc","bcd","cde"]))
 print(s.foreignDictionary(["wrtkj","wrt"]))
 words=["abca","cab","cad"]
 print(s.foreignDictionary(words))
+
+
+# Key insight:
+# The first differing character in adjacent words gives an ordering edge. Reject a longer word
+# before its own prefix; topologically sort the character graph and detect cycles.

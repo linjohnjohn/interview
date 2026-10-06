@@ -1,3 +1,12 @@
+/*
+ * Problem: Build Tree from Preorder and Inorder Traversals
+ * Reconstruct a binary tree from preorder and inorder traversals with unique values. Output
+ * trees below use level order and null for missing children.
+ *
+ * Expected input/output: preorder=[3,9,20,15,7], inorder=[9,3,15,20,7] ->
+ * [3,9,20,null,null,15,7]
+ */
+
 
 class TreeNode {
     constructor(val = 0, left = null, right = null) {
@@ -100,3 +109,10 @@ const s = new Solution();
 
 treeToMatrix(s.buildTree([1, 2, 4, 5, 3, 6, 7], [4, 2, 5, 1, 6, 3, 7]))
 
+
+
+/*
+ * Key insight:
+ * Preorder supplies the next root; its inorder index separates the left and right subtrees.
+ * Map values to inorder indices for fast splits.
+ */

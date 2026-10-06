@@ -1,3 +1,12 @@
+/*
+ * Problem: Min Stack
+ * Implement push, pop, top, and getMin, each in O(1). Queries and pop are made only when the
+ * stack is nonempty.
+ *
+ * Expected input/output: push(-2), push(0), push(-3), getMin(), pop(), top(), getMin() ->
+ * -3, 0, -2 for the three queries
+ */
+
 class MinStack {
     stack = [];
     mds = [];
@@ -48,3 +57,9 @@ ms.push(0);
 console.log(ms.getMin());
 ms.pop();
 console.log(ms.getMin());
+
+/*
+ * Key insight:
+ * Keep a second stack of minima, including duplicate minima, so popping a minimum restores
+ * the previous one.
+ */

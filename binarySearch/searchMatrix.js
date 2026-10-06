@@ -1,3 +1,12 @@
+/*
+ * Problem: Search a 2D Matrix
+ * Each row is sorted and each row's first value exceeds the previous row's last. Decide
+ * whether target exists in O(log(rows*columns)).
+ *
+ * Expected input/output: matrix=[[1,3,5],[7,9,11]], target=9 -> true; same matrix, target=6
+ * -> false
+ */
+
 class Solution {
     /**
      * @param {number[][]} matrix
@@ -28,3 +37,8 @@ class Solution {
 const s = new Solution();
 // console.log(s.searchMatrix([[1, 2, 3], [3, 5, 7], [9, 9, 9]], 5));
 console.log(s.searchMatrix([[1, 2, 4, 8], [10, 11, 12, 13], [14, 20, 30, 40]], 15))
+
+/*
+ * Key insight:
+ * Treat the matrix as one sorted array; index i maps to row i//columns and column i%columns.
+ */

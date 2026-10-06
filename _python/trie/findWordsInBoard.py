@@ -1,3 +1,10 @@
+# Problem: Word Search II
+# Return dictionary words formed by four-direction adjacent board letters. A cell may be used
+# only once per word; return each found word once, in any order.
+#
+# Expected input/output: board=[['a','b'],['c','d']], words=['ab','ac','aba','ad'] ->
+# ['ab','ac']
+
 from __future__ import annotations
 
 class PrefixTree:
@@ -91,3 +98,7 @@ s = Solution()
 
 print(s.findWords(board, words))
             
+
+# Key insight:
+# Build a trie of dictionary prefixes and backtrack through the board and trie together. Stop
+# when the current prefix has no trie branch and unmark cells when backtracking.

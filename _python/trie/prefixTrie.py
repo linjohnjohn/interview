@@ -1,3 +1,10 @@
+# Problem: Implement Trie (Prefix Tree)
+# Support inserting words, checking exact words with search, and checking whether any word
+# begins with a prefix using startsWith.
+#
+# Expected input/output: insert('apple'); search('apple') -> true; search('app') -> false;
+# startsWith('app') -> true
+
 class PrefixTree:
 
     def __init__(self):
@@ -46,3 +53,7 @@ print(prefixTree.startsWith("dog"))
 print(prefixTree.search("do"))
 print(prefixTree.startsWith("do"))
 print(prefixTree.startsWith("dogs"))
+
+# Key insight:
+# Store one character per trie edge and a separate word-ending flag, so an existing prefix is
+# not mistaken for a complete word.

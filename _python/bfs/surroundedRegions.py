@@ -1,3 +1,10 @@
+# Problem: Surrounded Regions
+# In an X/O board, change every O region not connected to a border into X. Connections use
+# four directions. Modify the board in place.
+#
+# Expected input/output: board=[['X','X','X'],['X','O','X'],['X','X','X']] -> all X;
+# board=[['O','O'],['X','O']] -> unchanged
+
 class Solution:
     def solve(self, board: list[list[str]]) -> None:
         ROWS, COLS = len(board), len(board[0])
@@ -64,3 +71,7 @@ grid = [
 s.solve(grid)
 
 print(grid)
+
+# Key insight:
+# Mark all O cells reachable from border O cells as safe; flip unmarked O cells and restore
+# the safe ones.
