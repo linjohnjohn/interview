@@ -18,23 +18,70 @@ from typing import Iterator
 
 class PhotoAlbumIterator(Iterator[str]):
     def __init__(self, album: list[str], favourites: set[str]) -> None:
-        raise NotImplementedError
+        self.album = album
+        self.favourites = favourites
+        self.N = len(album)        
+
+        if (len(favourites) == 0):
+            self.fav_index = self.N
+        else:
+            self.fav_index = self._find_next(-1, True)
+        self.nor_index = self._find_next(-1, False)
+        
+    def _find_next(self, index, is_favorite):
+        '''Given an starting index, finds next valid index of photo type
+        Args:
+            index: starting index (non-inclusive, search will start after this)
+            is_favorite: whether to find next valid favorite or normal photo
+
+        Returns:
+            if exists: next valid index for photo type
+            else: len of album (out of bound index)
+        '''
+        i = index + 1
+        while i < self.N:
+            is_valid = self.album[i] in self.favourites if is_favorite else self.album[i] not in self.favourites
+            if is_valid:
+                return i
+            i += 1
+        return self.N
+        
 
     def __iter__(self) -> Iterator[str]:
-        raise NotImplementedError
+        return self
 
     def __next__(self) -> str:
-        raise NotImplementedError
+        if self.fav_index < self.N:
+            nxt = self.album[self.fav_index]
+            self.fav_index = self._find_next(self.fav_index, True)
+            return nxt
+        elif self.nor_index < self.N:
+            nxt = self.album[self.nor_index]
+            self.nor_index = self._find_next(self.nor_index, False)
+            return nxt
+        raise StopIteration
 
 
-# TODO: Clarifying questions
-#
+album = ['A', 'B', 'C', 'D']
+fav = set(['B', 'D'])
+it = PhotoAlbumIterator(album, fav)
+print(list(it))
 
-# TODO: Approach / invariant
-#
+album = []
+fav = set()
+it = PhotoAlbumIterator(album, fav)
+print(list(it))
 
-# TODO: Complexity
-#
+album = ['A', 'B', 'C', 'D']
+fav = set()
+it = PhotoAlbumIterator(album, fav)
+print(list(it))
 
-# TODO: Edge cases
-#
+"""
+# Approach / invariant
+- two pointers, favoriteIndex, normalIndex each initialized to index of first favorite or normal photo
+- next will return next valid photo from fav_index first then nor_index and also precompute the corresponding next valid index
+
+# Complexity
+"""
+
